@@ -2,30 +2,25 @@ class Student {
     String name;
     int rollNo;
 
-    // static variable (common for all students)
-    static String collegeName = "VIT College";
-
     // Constructor
     Student(String name, int rollNo) {
         this.name = name;
         this.rollNo = rollNo;
     }
 
-    void display() {
+    // Instance Method
+    void displayDetails() {
         System.out.println("Name: " + name);
         System.out.println("Roll No: " + rollNo);
-        System.out.println("College Name: " + collegeName);
-        System.out.println();
     }
 }
 
-public class Main {
+public class instance {
     public static void main(String[] args) {
 
         Student s1 = new Student("Yash", 12);
-        Student s2 = new Student("Riya", 15);
 
-        s1.display();
-        s2.display();
+        // calling instance method using object
+        s1.displayDetails();
     }
 }

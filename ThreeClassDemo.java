@@ -18,7 +18,7 @@ public class ThreeClassDemo {
         ClassB obj2 = new ClassB();
         ClassC obj3 = new ClassC();
 
-        // Accessing variables using objects
+        //wat Accessing variables using objects
         System.out.println("Value from ClassA: " + obj1.a);
         System.out.println("Value from ClassB: " + obj2.b);
         System.out.println("Value from ClassC: " + obj3.c);

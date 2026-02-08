@@ -5,6 +5,7 @@ public class StringMethods{
         System.out.println("Trimmed: "+str.trim());
         System.out.println("Uppercase: "+str.toUpperCase());
         System.out.println("Substring (2,6): "+str.substring(2,6));
-        System.out.println("Replaced java with python: "+str.contains("Java","Python"));
+        System.out.println("Replaced java with python: "+str.replace("Java","Python"));
+
     }
 }

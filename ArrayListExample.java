@@ -1,15 +1,20 @@
 import java.util.ArrayList;
 
-public class ArrayListExample{
-    public static void main(String[]args){
-        ArrayList<String> fruits = new ArrayList<String>();
+public class ArrayListExample {
+    public static void main(String[] args) {
+
+        ArrayList<String> fruits = new ArrayList<>();
+
         fruits.add("Apple");
         fruits.add("Banana");
-        fruits.add("Mango");
+        fruits.add("Cherry");
+
         System.out.println("Fruits: " + fruits);
-        fruits.remove("Banana");
-        System.out.println("Fruits after removal: " + fruits);
-        System.out.println("Size of fruits list: " + fruits.size());
-        System.out.println("Contains apple " + fruits.contains("Apple"));
+
+        fruits.remove("Banana"); // Remove element
+        System.out.println("After removing Banana: " + fruits);
+
+        System.out.println("Size: " + fruits.size()); // Get size
+        System.out.println("Contains Apple? " + fruits.contains("Apple"));
     }
 }

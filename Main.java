@@ -1,40 +1,82 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 
-class Student {
-    String name;
-    int rollNo;
-    long prn;
+class Book {
+    private String title;
+    private String author;
+    private String isbn;
 
-    // Parameterised Constructor
-    Student(String name, int rollNo, long prn) {
-        this.name = name;
-        this.rollNo = rollNo;
-        this.prn = prn;
+    public Book(String title, String author, String isbn) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
     }
 
-    void display() {
-        System.out.println("Name: " + name);
-        System.out.println("Roll No: " + rollNo);
-        System.out.println("PRN: " + prn);
+    public String getTitle() {
+        return title;
+    }
+
+    public void displayBook() {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("ISBN: " + isbn);
+        System.out.println("----------------------");
+    }
+}
+
+class Library {
+    private ArrayList<Book> books;
+
+    public Library() {
+        books = new ArrayList<>();
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+        System.out.println("Book added successfully!");
+    }
+
+    public Book searchByTitle(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public void displayAllBooks() {
+        if (books.isEmpty()) {
+            System.out.println("Library is empty.");
+        } else {
+            for (Book book : books) {
+                book.displayBook();
+            }
+        }
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter Name: ");
-        String name = sc.nextLine();
+        Library library = new Library();
 
-        System.out.print("Enter Roll No: ");
-        int rollNo = sc.nextInt();
+        Book book1 = new Book("Java Programming", "James Gosling", "101");
+        Book book2 = new Book("Data Structures", "Mark Allen", "102");
 
-        System.out.print("Enter PRN: ");
-        long prn = sc.nextLong();
+        library.addBook(book1);
+        library.addBook(book2);
 
-        Student s = new Student(name, rollNo, prn);
-        s.display();
+        System.out.println("\nDisplaying All Books:");
+        library.displayAllBooks();
 
-        sc.close();
+        System.out.println("\nSearching for a Book:");
+        Book foundBook = library.searchByTitle("Java Programming");
+
+        if (foundBook != null) {
+            System.out.println("Book Found:");
+            foundBook.displayBook();
+        } else {
+            System.out.println("Book not found.");
+        }
     }
 }
